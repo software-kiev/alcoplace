@@ -37,7 +37,7 @@ export function ProductMapInner({ productId }: ProductMapProps) {
   ]
 
   return (
-    <div style={{ height: 380, filter: 'saturate(0.8) contrast(0.92)' }}>
+    <div className="w-full h-[280px] sm:h-[380px]" style={{ filter: 'saturate(0.8) contrast(0.92)' }}>
       <MapContainer center={center} zoom={12} style={{ height: '100%', width: '100%' }} scrollWheelZoom={false}>
         <TileLayer
           attribution='&copy; <a href="https://carto.com">CARTO</a>'

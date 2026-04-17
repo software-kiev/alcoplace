@@ -28,7 +28,7 @@ export function SimilarProducts({ currentProduct }: SimilarProductsProps) {
       transition={{ duration: 0.4, ease: 'easeOut' }}
       className="mt-0"
     >
-      <h2 className="font-heading text-2xl font-medium text-[#1C1C1C] mb-6">
+      <h2 className="font-heading text-xl sm:text-2xl font-medium text-[#1C1C1C] mb-6">
         {ui.product.similar}
       </h2>
       <div
@@ -36,7 +36,7 @@ export function SimilarProducts({ currentProduct }: SimilarProductsProps) {
         style={{ scrollbarWidth: 'none' }}
       >
         {similar.map((p, i) => (
-          <div key={p.id} className="flex-shrink-0 w-56">
+          <div key={p.id} className="flex-shrink-0 w-44 sm:w-56">
             <ProductCard product={p} index={i} />
           </div>
         ))}

@@ -233,13 +233,13 @@ function ListPageInner() {
             </div>
 
             {/* Sort tabs + mobile toggle */}
-            <div className="flex items-center justify-between mb-6">
-              <div className="flex gap-2">
+            <div className="flex items-center justify-between mb-6 gap-3">
+              <div className="flex gap-2 flex-wrap">
                 {(['coverage', 'price', 'distance'] as SortMode[]).map((s) => (
                   <button
                     key={s}
                     onClick={() => setSort(s)}
-                    className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${
+                    className={`px-3 sm:px-4 py-2 rounded-full text-xs sm:text-sm font-medium transition-colors ${
                       sort === s ? 'bg-[#1E3A2F] text-white' : 'text-[#6B6560] hover:bg-[#F0EDE6]'
                     }`}
                   >
@@ -291,8 +291,7 @@ function ListPageInner() {
               {/* Map */}
               <div className={`md:w-3/5 ${mobileView === 'list' ? 'hidden md:block' : ''}`}>
                 <div
-                  className="bg-white rounded-2xl overflow-hidden shadow-[0_20px_60px_rgba(0,0,0,0.08)] border border-[rgba(0,0,0,0.04)]"
-                  style={{ height: 700 }}
+                  className="bg-white rounded-2xl overflow-hidden shadow-[0_20px_60px_rgba(0,0,0,0.08)] border border-[rgba(0,0,0,0.04)] h-[400px] sm:h-[550px] md:h-[700px]"
                 >
                   <StoreMap
                     stores={storeResults}

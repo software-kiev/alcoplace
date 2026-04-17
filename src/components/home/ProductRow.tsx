@@ -63,7 +63,7 @@ export function ProductRow({ title, products, viewAllHref }: ProductRowProps) {
         style={{ scrollbarWidth: 'none' }}
       >
         {products.map((product, i) => (
-          <div key={product.id} className="flex-shrink-0 w-56 snap-start">
+          <div key={product.id} className="flex-shrink-0 w-44 sm:w-56 snap-start">
             <ProductCard product={product} index={i} />
           </div>
         ))}

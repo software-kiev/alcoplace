@@ -1,8 +1,10 @@
 'use client'
 
+import { useState } from 'react'
 import Image from 'next/image'
 import { categories } from '@/mock/categories'
 import { ui } from '@/lib/ui-strings'
+import { SlidersHorizontal, ChevronDown } from 'lucide-react'
 
 interface FilterSidebarProps {
   selectedCategory: string
@@ -17,8 +19,10 @@ export function FilterSidebar({
   selectedCategory,
   onCategoryChange,
 }: FilterSidebarProps) {
-  return (
-    <aside className="w-full lg:w-64 flex-shrink-0 space-y-6">
+  const [mobileOpen, setMobileOpen] = useState(false)
+
+  const filterContent = (
+    <div className="space-y-6">
       <div>
         <h3 className="font-medium text-sm text-[#1C1C1C] mb-3">{ui.filters.category}</h3>
         <div className="space-y-1">
@@ -95,6 +99,34 @@ export function FilterSidebar({
           </div>
         </>
       )}
+    </div>
+  )
+
+  return (
+    <aside className="w-full lg:w-64 flex-shrink-0">
+      {/* Mobile toggle */}
+      <button
+        onClick={() => setMobileOpen(!mobileOpen)}
+        className="lg:hidden flex items-center justify-between w-full px-4 py-3 rounded-xl bg-white border border-[#E5E0D8] text-sm font-medium text-[#1C1C1C] mb-4"
+      >
+        <span className="flex items-center gap-2">
+          <SlidersHorizontal className="h-4 w-4 text-[#6B6560]" />
+          Фільтри
+        </span>
+        <ChevronDown className={`h-4 w-4 text-[#6B6560] transition-transform ${mobileOpen ? 'rotate-180' : ''}`} />
+      </button>
+
+      {/* Mobile: collapsible */}
+      <div className={`lg:hidden overflow-hidden transition-all duration-300 ${mobileOpen ? 'max-h-[2000px] opacity-100 mb-6' : 'max-h-0 opacity-0'}`}>
+        <div className="p-4 rounded-xl bg-white border border-[#E5E0D8]">
+          {filterContent}
+        </div>
+      </div>
+
+      {/* Desktop: always visible */}
+      <div className="hidden lg:block">
+        {filterContent}
+      </div>
     </aside>
   )
 }

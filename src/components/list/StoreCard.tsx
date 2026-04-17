@@ -122,17 +122,17 @@ export function StoreCard({ store, isActive, isBest, savings, onClick, onSelect 
             e.stopPropagation()
             onSelect()
           }}
-          className="flex-1 py-2.5 rounded-lg bg-[#1E3A2F] text-white text-xs font-medium hover:bg-[#162C23] transition-colors flex items-center justify-center gap-1.5"
+          className="flex-1 py-2.5 rounded-lg bg-[#1E3A2F] text-white text-xs font-medium hover:bg-[#162C23] transition-colors flex items-center justify-center gap-1.5 min-w-0"
         >
-          <Check className="h-3.5 w-3.5" />
-          Обрати магазин
+          <Check className="h-3.5 w-3.5 flex-shrink-0" />
+          <span className="truncate">Обрати магазин</span>
         </motion.button>
         <button
           onClick={handleRoute}
-          className="px-3 py-2.5 rounded-lg border border-[#E5E0D8] text-xs font-medium text-[#6B6560] hover:border-[#1E3A2F] hover:text-[#1E3A2F] transition-colors flex items-center gap-1.5"
+          className="px-3 py-2.5 rounded-lg border border-[#E5E0D8] text-xs font-medium text-[#6B6560] hover:border-[#1E3A2F] hover:text-[#1E3A2F] transition-colors flex items-center gap-1.5 flex-shrink-0"
         >
           <Navigation className="h-3.5 w-3.5" />
-          Маршрут
+          <span className="hidden sm:inline">Маршрут</span>
         </button>
       </div>
     </div>

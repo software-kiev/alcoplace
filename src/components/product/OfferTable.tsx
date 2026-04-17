@@ -68,7 +68,7 @@ export function OfferTable({ productId }: OfferTableProps) {
               )}
             </div>
 
-            <div className="flex items-center gap-3 sm:gap-4 ml-4">
+            <div className="flex flex-col sm:flex-row items-end sm:items-center gap-2 sm:gap-4 ml-3 sm:ml-4">
               <div className="text-right">
                 <p className={`text-lg font-semibold ${isBest ? 'text-[#1A6B42]' : 'text-[#1E3A2F]'}`}>
                   {formatPrice(offer.price)} ₴
@@ -78,7 +78,7 @@ export function OfferTable({ productId }: OfferTableProps) {
                 </span>
               </div>
 
-              <div className="flex flex-col items-center gap-1">
+              <div className="hidden sm:flex flex-col items-center gap-1">
                 <div className="flex items-center gap-1 text-xs text-[#9E9890]">
                   <MapPin className="h-3 w-3" />
                   <span>{store.distance_km.toFixed(1)} км</span>

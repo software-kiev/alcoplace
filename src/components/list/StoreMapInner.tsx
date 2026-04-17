@@ -44,7 +44,7 @@ export function StoreMapInner({ stores, activeStoreId, onStoreClick }: StoreMapI
   if (stores.length === 0) return null
 
   return (
-    <div className="w-full" style={{ height: 700, filter: 'saturate(0.8) contrast(0.92)' }}>
+    <div className="w-full h-[400px] sm:h-[550px] md:h-[700px]" style={{ filter: 'saturate(0.8) contrast(0.92)' }}>
       <MapContainer
         center={USER_LOCATION}
         zoom={12}
