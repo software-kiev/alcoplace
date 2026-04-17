@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { playfair, inter } from "@/lib/fonts";
 import { ShoppingListProvider } from "@/lib/shopping-list-context";
+import { CityProvider } from "@/lib/city-context";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import "./globals.css";
@@ -22,9 +23,11 @@ export default function RootLayout({
     >
       <body className="min-h-full flex flex-col">
         <ShoppingListProvider>
-          <Navbar />
-          <main className="flex-1">{children}</main>
-          <Footer />
+          <CityProvider>
+            <Navbar />
+            <main className="flex-1">{children}</main>
+            <Footer />
+          </CityProvider>
         </ShoppingListProvider>
       </body>
     </html>

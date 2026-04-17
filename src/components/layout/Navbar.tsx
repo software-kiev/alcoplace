@@ -9,6 +9,7 @@ import { useState, useEffect, useRef } from 'react'
 import { useRouter, usePathname } from 'next/navigation'
 import { searchProducts } from '@/mock/products'
 import { SearchDropdown } from '@/components/shared/SearchDropdown'
+import { CityPicker } from '@/components/shared/CityPicker'
 
 export function Navbar() {
   const { count } = useShoppingList()
@@ -175,6 +176,9 @@ export function Navbar() {
           >
             {menuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
           </button>
+
+          {/* City selector */}
+          <CityPicker isTransparent={isTransparent} />
 
           <Link
             href="/list"
