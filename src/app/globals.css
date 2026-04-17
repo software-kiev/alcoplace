@@ -123,3 +123,14 @@
     font-family: var(--font-heading);
   }
 }
+
+/* Hide scrollbar utility */
+@layer utilities {
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}

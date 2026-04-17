@@ -27,7 +27,7 @@ export function HeroSection() {
   }
 
   return (
-    <section className="relative min-h-[50vh] flex items-center overflow-hidden -mt-16">
+    <section className="relative min-h-[100svh] sm:min-h-[70vh] flex items-center overflow-hidden -mt-16">
       {/* Background photo */}
       <div
         className="absolute inset-0 bg-cover bg-center bg-[position:center_30%]"
@@ -36,12 +36,12 @@ export function HeroSection() {
       {/* Dark overlay */}
       <div className="absolute inset-0 bg-gradient-to-b from-[#0F1A17]/60 via-[#0F1A17]/55 to-[#0F1A17]/75" />
 
-      <div className="relative z-10 max-w-3xl mx-auto px-4 text-center w-full pt-20 pb-8">
+      <div className="relative z-10 max-w-3xl mx-auto px-4 text-center w-full pt-14 sm:pt-20 pb-8">
         <motion.h1
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.4, ease: 'easeOut' }}
-          className="font-heading text-3xl sm:text-4xl md:text-5xl font-medium text-[#F3F2EE] leading-tight tracking-tight"
+          className="font-heading text-2xl sm:text-4xl md:text-5xl font-medium text-[#F3F2EE] leading-tight tracking-tight"
         >
           {ui.hero.title}
           <br />
@@ -75,7 +75,7 @@ export function HeroSection() {
           className="mt-8 max-w-xl mx-auto relative"
         >
           <div className="relative">
-            <Search className="absolute left-4 top-1/2 -translate-y-1/2 h-5 w-5 text-white/40" />
+            <Search className="absolute left-3 sm:left-4 top-1/2 -translate-y-1/2 h-4 w-4 sm:h-5 sm:w-5 text-white/40" />
             <input
               ref={inputRef}
               type="text"
@@ -87,11 +87,11 @@ export function HeroSection() {
               onFocus={() => setShowResults(true)}
               onBlur={() => setTimeout(() => setShowResults(false), 200)}
               placeholder={ui.search.placeholder}
-              className="w-full pl-12 pr-28 py-4 rounded-2xl border border-white/15 bg-white/10 backdrop-blur-sm text-white placeholder:text-white/40 focus:outline-none focus:border-white/30 focus:bg-white/15 transition-colors text-base"
+              className="w-full pl-10 sm:pl-12 pr-24 sm:pr-28 py-3 sm:py-4 rounded-2xl border border-white/15 bg-white/10 backdrop-blur-sm text-white placeholder:text-white/40 focus:outline-none focus:border-white/30 focus:bg-white/15 transition-colors text-sm sm:text-base"
             />
             <button
               type="submit"
-              className="absolute right-2 top-1/2 -translate-y-1/2 px-6 py-2.5 rounded-xl text-sm font-medium text-white transition-colors"
+              className="absolute right-2 top-1/2 -translate-y-1/2 px-4 sm:px-6 py-2 sm:py-2.5 rounded-xl text-xs sm:text-sm font-medium text-white transition-colors"
               style={{ background: 'linear-gradient(135deg, #1F4033, #2B5A45)' }}
             >
               {ui.search.button}
@@ -116,14 +116,14 @@ export function HeroSection() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.4, delay: 0.22, ease: 'easeOut' }}
-          className="mt-4 flex flex-wrap items-center justify-center gap-2"
+          className="mt-4 flex items-center gap-2 overflow-x-auto pb-1 -mx-4 px-4 sm:mx-0 sm:px-0 sm:flex-wrap sm:justify-center no-scrollbar"
         >
-          <span className="text-xs text-white/30">Популярне:</span>
+          <span className="text-xs text-white/30 flex-shrink-0">Популярне:</span>
           {ui.search.popularQueries.map((q) => (
             <Link
               key={q}
               href={`/catalog/all?q=${encodeURIComponent(q)}`}
-              className="text-xs px-3 py-1.5 rounded-full border border-white/10 text-white/50 hover:text-white hover:border-white/25 hover:bg-white/8 transition-colors"
+              className="text-xs px-3 py-1.5 rounded-full border border-white/10 text-white/50 hover:text-white hover:border-white/25 hover:bg-white/8 transition-colors flex-shrink-0 whitespace-nowrap"
             >
               {q}
             </Link>

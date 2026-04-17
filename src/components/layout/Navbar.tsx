@@ -1,7 +1,7 @@
 'use client'
 
 import Link from 'next/link'
-import { Search, ShoppingBag, X } from 'lucide-react'
+import { Search, ShoppingBag, X, Menu } from 'lucide-react'
 import { motion, AnimatePresence } from 'motion/react'
 import { useShoppingList } from '@/lib/shopping-list-context'
 import { ui } from '@/lib/ui-strings'
@@ -17,6 +17,7 @@ export function Navbar() {
   const [scrolled, setScrolled] = useState(false)
   const [pastHero, setPastHero] = useState(false)
   const [mobileSearchOpen, setMobileSearchOpen] = useState(false)
+  const [menuOpen, setMenuOpen] = useState(false)
   const mobileInputRef = useRef<HTMLInputElement>(null)
   const desktopInputRef = useRef<HTMLInputElement>(null)
   const router = useRouter()
@@ -136,19 +137,44 @@ export function Navbar() {
             )}
           </AnimatePresence>
 
-          {/* Spacer when search is hidden to push list button to the right */}
-          {!showHeaderSearch && <div className="flex-1" />}
+          {/* Desktop nav links — centered between search and actions */}
+          <AnimatePresence>
+            {!showHeaderSearch && (
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                className="flex-1 hidden md:flex items-center justify-center gap-1"
+              >
+                <Link href="/catalog/all" className={`px-4 py-2 text-sm font-medium rounded-full transition-colors ${isTransparent ? 'text-white/70 hover:text-white hover:bg-white/10' : 'text-[#6B6560] hover:text-[#1C1C1C] hover:bg-[#F0EDE6]'}`}>Каталог</Link>
+                <Link href="/catalog/all" className={`px-4 py-2 text-sm font-medium rounded-full transition-colors ${isTransparent ? 'text-white/70 hover:text-white hover:bg-white/10' : 'text-[#6B6560] hover:text-[#1C1C1C] hover:bg-[#F0EDE6]'}`}>Про нас</Link>
+                <Link href="/catalog/all" className={`px-4 py-2 text-sm font-medium rounded-full transition-colors ${isTransparent ? 'text-white/70 hover:text-white hover:bg-white/10' : 'text-[#6B6560] hover:text-[#1C1C1C] hover:bg-[#F0EDE6]'}`}>Контакти</Link>
+              </motion.div>
+            )}
+          </AnimatePresence>
+
+          {/* Spacer when both nav links and search are hidden (should not happen, but safety) */}
+          {showHeaderSearch ? null : <div className="flex-1 md:hidden" />}
 
           {/* Mobile search toggle — only when header search should be visible */}
           {showHeaderSearch && (
             <button
               onClick={() => setMobileSearchOpen((v) => !v)}
-              className="sm:hidden p-2 rounded-full transition-colors text-[#6B6560] hover:text-[#1C1C1C] hover:bg-[#F0EDE6]"
+              className={`sm:hidden p-2 rounded-full transition-colors ${isTransparent ? 'text-white hover:bg-white/10' : 'text-[#6B6560] hover:text-[#1C1C1C] hover:bg-[#F0EDE6]'}`}
               aria-label="Пошук"
             >
               {mobileSearchOpen ? <X className="h-5 w-5" /> : <Search className="h-5 w-5" />}
             </button>
           )}
+
+          {/* Mobile hamburger menu */}
+          <button
+            onClick={() => setMenuOpen((v) => !v)}
+            className={`md:hidden p-2 rounded-full transition-colors ${isTransparent ? 'text-white hover:bg-white/10' : 'text-[#6B6560] hover:text-[#1C1C1C] hover:bg-[#F0EDE6]'}`}
+            aria-label="Меню"
+          >
+            {menuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+          </button>
 
           <Link
             href="/list"
@@ -211,6 +237,43 @@ export function Navbar() {
                 </div>
               )}
             </form>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      {/* Mobile navigation menu */}
+      <AnimatePresence>
+        {menuOpen && (
+          <motion.div
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: 'auto' }}
+            exit={{ opacity: 0, height: 0 }}
+            className="md:hidden overflow-hidden border-t border-[#E5E0D8]"
+            style={{ backgroundColor: isTransparent ? 'rgba(15,26,23,0.95)' : '#fff' }}
+          >
+            <div className="px-4 py-3 space-y-1">
+              <Link
+                href="/catalog/all"
+                onClick={() => setMenuOpen(false)}
+                className={`block px-4 py-3 rounded-xl text-sm font-medium transition-colors ${isTransparent ? 'text-white/80 hover:bg-white/10 hover:text-white' : 'text-[#1C1C1C] hover:bg-[#F0EDE6]'}`}
+              >
+                Каталог
+              </Link>
+              <Link
+                href="/catalog/all"
+                onClick={() => setMenuOpen(false)}
+                className={`block px-4 py-3 rounded-xl text-sm font-medium transition-colors ${isTransparent ? 'text-white/80 hover:bg-white/10 hover:text-white' : 'text-[#1C1C1C] hover:bg-[#F0EDE6]'}`}
+              >
+                Про нас
+              </Link>
+              <Link
+                href="/catalog/all"
+                onClick={() => setMenuOpen(false)}
+                className={`block px-4 py-3 rounded-xl text-sm font-medium transition-colors ${isTransparent ? 'text-white/80 hover:bg-white/10 hover:text-white' : 'text-[#1C1C1C] hover:bg-[#F0EDE6]'}`}
+              >
+                Контакти
+              </Link>
+            </div>
           </motion.div>
         )}
       </AnimatePresence>

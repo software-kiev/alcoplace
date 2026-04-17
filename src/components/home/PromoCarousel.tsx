@@ -23,7 +23,7 @@ export function PromoCarousel() {
                   />
                   {/* Dark gradient overlay from bottom */}
                   <div className="absolute inset-0 bg-gradient-to-t from-[#0F1A17]/80 via-[#0F1A17]/30 to-transparent" />
-                  <div className="absolute inset-0 flex flex-col justify-end px-8 sm:px-12 pb-8">
+                  <div className="absolute inset-0 flex flex-col justify-end px-5 sm:px-8 md:px-12 pb-6 sm:pb-8">
                     <h3 className="text-white font-heading text-2xl sm:text-3xl font-semibold mb-2">
                       {banner.title}
                     </h3>

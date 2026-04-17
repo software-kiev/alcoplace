@@ -20,7 +20,7 @@ export function CategoryGrid() {
         </div>
         <Link
           href="/catalog/all"
-          className="hidden sm:inline-block text-sm font-medium text-[#1E3A2F] hover:text-[#C6A45A] transition-colors"
+          className="text-sm font-medium text-[#1E3A2F] hover:text-[#C6A45A] transition-colors"
         >
           {ui.categories.viewAll}
         </Link>
@@ -55,7 +55,7 @@ export function CategoryGrid() {
 
               {/* Content */}
               <div className="relative z-10 p-3">
-                <span className="block text-sm font-medium text-white leading-tight">
+                <span className="block text-xs sm:text-sm font-medium text-white leading-tight">
                   {cat.name}
                 </span>
               </div>
