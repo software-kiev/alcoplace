@@ -7,7 +7,7 @@ import { Footer } from "@/components/layout/Footer";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Alcoplace — знайди напій за найкращою ціною",
+  title: "AlcoPlace — знайди напій за найкращою ціною",
   description: "Маркетплейс-агрегатор алкогольних напоїв. Порівнюй ціни, знаходь магазини поруч.",
 };
 

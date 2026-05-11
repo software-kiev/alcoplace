@@ -56,7 +56,7 @@ export const ui = {
     hint: 'Далі: знайти магазини і порівняти ціни',
   },
   trust: {
-    heading: 'Чому Alcoplace',
+    heading: 'Чому AlcoPlace',
     items: [
       { value: '100 000+', label: 'товарів у каталозі', icon: '📦' },
       { value: '100+', label: 'магазинів по Україні', icon: '🏪' },

@@ -32,7 +32,7 @@ export function EditorialSection() {
     <section className="bg-[#0F1A17] py-16 sm:py-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <h2 className="font-heading text-2xl sm:text-3xl font-medium text-[#F3F2EE] mb-10">
-          Редакція Alcoplace
+          Редакція AlcoPlace
         </h2>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">

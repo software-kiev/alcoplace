@@ -91,7 +91,7 @@ export function Navbar() {
             </svg>
             <span className="font-heading text-xl font-semibold tracking-wide">
               <span className={isTransparent ? 'text-white' : 'text-[#1E3A2F]'}>Alco</span>
-              <span className="text-[#C6A45A]">place</span>
+              <span className="text-[#C6A45A]">Place</span>
             </span>
           </Link>
 

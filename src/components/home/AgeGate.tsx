@@ -66,7 +66,7 @@ export function AgeGate() {
 
               {/* Brand */}
               <p className="font-heading text-xs tracking-[0.2em] uppercase text-[#C6A45A]/70 mb-4">
-                Alcoplace
+                AlcoPlace
               </p>
 
               <h2 className="font-heading text-2xl font-semibold text-[#F3F2EE] mb-2 leading-snug">
